@@ -70,7 +70,7 @@ Esta spec não entrega funcionalidade ao usuário final. Ela garante três coisa
 | RN-000-22 | Os comandos do processo existem como skills: `/spec-nova`, `/spec-requisitos`, `/spec-design`, `/spec-tarefas`, `/tarefa-proxima` e `/spec-status`. Cada etapa recusa começar sem a aprovação da anterior |
 | RN-000-23 | Existem os subagentes **revisor de spec** e **revisor de código**, que revisam com contexto limpo |
 | RN-000-24 | Permissões do Claude Code: checks e leitura liberados; `git commit` e edição da constituição perguntam antes; ler `.env`, `git push`, remover volumes Docker e `migrate:fresh` são proibidos |
-| RN-000-25 | Hooks do Claude Code: formata com Pint após editar arquivo PHP; roda os checks antes de `git commit` e bloqueia se falharem |
+| RN-000-25 | Hook do Claude Code: formata com Pint após editar arquivo PHP. A verificação antes do commit é feita pelo git hook (RN-000-11), que também vale para o Claude Code |
 | RN-000-26 | O MCP Laravel Boost roda no container `app` e está configurado para o Claude Code |
 
 ## Critérios de aceite
@@ -243,3 +243,4 @@ Esta spec não entrega funcionalidade ao usuário final. Ela garante três coisa
 | 2026-10-12 | Rascunho inicial | — |
 | 2026-10-12 | Respostas às dúvidas 1 a 5; RN-000-27, RN-000-28 e CA-000-26 adicionados | Decisões do responsável pelo produto |
 | 2026-10-12 | Requisitos aprovados | — |
+| 2026-10-12 | RN-000-25: a verificação antes do commit sai do hook do Claude Code e fica só no git hook | Proposto no design e aprovado: um único mecanismo, sem rodar os testes duas vezes (P15) |

@@ -2,7 +2,7 @@
 
 | Status | Data | Aprovado por |
 |---|---|---|
-| Rascunho | 2026-10-12 | — |
+| Design aprovado | 2026-10-12 | Dêvisson Souza |
 
 Requisitos: [requisitos.md](requisitos.md)
 
@@ -320,9 +320,9 @@ Itens que dependem da sua conta e de credenciais, e que o Claude Code não faz:
 | P14 Critério vira teste | `make check` no hook e no CI; testes sem serviços externos |
 | P15 Simplicidade | Um Makefile, um mecanismo de bloqueio de commit, sem Node, sem pacote de tradução |
 
-## Ajustes propostos aos requisitos
+## Ajustes feitos nos requisitos
 
-| Item | Proposta | Motivo |
+| Item | Ajuste | Motivo |
 |---|---|---|
 | RN-000-25 | O hook do Claude Code **só formata com o Pint**. A verificação antes do commit fica no git hook (RN-000-11), que já bloqueia commits do Claude Code. O [harness](../../docs/harness.md) é atualizado igual | Hoje a regra pede dois mecanismos para a mesma coisa, e os testes rodariam duas vezes a cada commit do Claude Code (P15) |
 
@@ -331,3 +331,4 @@ Itens que dependem da sua conta e de credenciais, e que o Claude Code não faz:
 | Data | Alteração | Motivo |
 |---|---|---|
 | 2026-10-12 | Rascunho inicial | — |
+| 2026-10-12 | Ajuste no RN-000-25 e ressalva do Scramble aceitos; design aprovado | Decisões do responsável pelo produto |

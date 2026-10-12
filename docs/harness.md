@@ -1,7 +1,7 @@
 # Harness do Claude Code
 
 > Definição da configuração que faz o Claude Code seguir o processo de forma consistente.
-> **Nenhuma peça foi criada ainda.** A criação acontece junto com o esqueleto do repositório, logo antes da primeira tarefa de código.
+> **Nenhuma peça foi criada ainda.** A criação acontece na [spec 000 (Fundação)](../specs/000-fundacao/design.md), que detalha cada peça.
 > Última revisão: 2026-10-12.
 
 ## Princípio
@@ -65,7 +65,8 @@ Revisam com contexto limpo, sem o viés de quem escreveu.
 | Momento | Ação |
 |---|---|
 | Após editar arquivo PHP | Formata com Pint |
-| Antes de `git commit` | Roda testes, Pint e Larastan; **bloqueia o commit** se algo falhar |
+
+A verificação antes do commit (testes, Pint e Larastan) fica no **git hook** de pré-commit (seção "Git hooks"), que bloqueia também os commits do Claude Code. Não há um segundo hook para isso.
 
 ### MCP
 - **Laravel Boost**, executando no container `app`: documentação da versão exata do Laravel e dos pacotes, schema do banco, logs e Artisan.
