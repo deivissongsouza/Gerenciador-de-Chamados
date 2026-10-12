@@ -12,11 +12,14 @@
 | Permissão | `Permission` | Autorização para uma ação específica (ex.: `tickets.assign`) |
 | Solicitante | `Requester` | Papel de quem pede atendimento. No chamado, a pessoa que precisa do atendimento (`requester`) |
 | Técnico | `Technician` | Papel de quem atende chamados. Não usar `Agent`, reservado para agentes de IA |
-| Gestor da Organização | `OrganizationManager` | Papel de quem acompanha os chamados e indicadores da própria organização (ex.: gerente do hospital) |
-| Gestor | `Manager` | Papel de quem administra o sistema e acompanha os indicadores |
-| Alcance | `.own`, `.organization`, `.linked`, `.all` | Conjunto de registros sobre os quais uma permissão vale (ver [permissoes.md](permissoes.md)) |
-| Chave de API | `ApiToken` | Credencial de acesso à API, com escopos |
-| Escopo | `ability` | O que uma chave de API pode fazer |
+| Gestor de Departamento | `DepartmentManager` | Papel, somado ao Solicitante, de quem acompanha os chamados e indicadores do próprio departamento (ex.: gestor do Almoxarifado) |
+| Gestor da Organização | `OrganizationManager` | Papel, somado ao Solicitante, de quem acompanha os chamados e indicadores da própria organização (ex.: gerente do hospital) |
+| Gestor | `Manager` | Papel de quem coordena o atendimento e acompanha todos os chamados e indicadores. Não administra o sistema |
+| Administrador | `Admin` | Papel de quem configura o sistema (usuários, papéis, estrutura, catálogo, SLA, configurações, auditoria, chaves de API). É uma função, não um cargo |
+| Alcance | `.own`, `.department`, `.organization`, `.linked`, `.all` | Conjunto de registros sobre os quais uma permissão vale (ver [permissoes.md](permissoes.md)) |
+| Pessoa | `type: person` | Usuário humano. Entra com e-mail e senha; não tem chave de API |
+| Conta de integração | `type: integration` | Usuário que representa uma ferramenta ou agente (ex.: "Zabbix produção"). Não tem senha nem faz login; acessa só por chave de API, com os papéis e o canal de origem cadastrados pelo Administrador |
+| Chave de API | `ApiToken` | Credencial de uma conta de integração. Pode exatamente o que a conta pode |
 
 > "Usuário" sempre significa a conta. Para o papel de quem pede atendimento, use "Solicitante".
 

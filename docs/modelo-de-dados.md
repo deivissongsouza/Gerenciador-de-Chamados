@@ -40,6 +40,7 @@ erDiagram
     tickets }o--o| teams : "atendido por"
     tickets }o--o| categories : "classificado em"
     tickets |o--o{ tickets : "previous_ticket_id"
+    departments |o--o{ tickets : "departamento do solicitante"
     tickets ||--o{ ticket_comments : "possui"
     tickets ||--o| ratings : "recebe"
     tickets ||--o{ attachments : "possui"
@@ -65,9 +66,12 @@ erDiagram
         ulid id PK
         ulid organization_id FK
         ulid department_id FK "opcional"
+        string type "person ou integration"
         string name
-        string email
+        string email "só pessoas"
+        string password "só pessoas, hash"
         string phone "opcional"
+        string channel "só integrações"
     }
     business_calendars {
         ulid id PK
@@ -106,6 +110,7 @@ erDiagram
         string channel
         boolean is_private
         ulid organization_id FK
+        ulid department_id FK "opcional"
         ulid requester_id FK
         ulid creator_id FK
         ulid assignee_id FK
@@ -158,7 +163,7 @@ erDiagram
 | `organizations` | Empresas atendidas | `is_main` marca a empresa de suporte (exatamente uma). Usa um calendário de horário útil |
 | `departments` | Setores de uma organização | Pertence a uma organização |
 | `teams` | Equipes técnicas | N:N com usuários (`team_user`) e com organizações atendidas (`team_organization`) |
-| `users` | Contas | Organização obrigatória; departamento e telefone opcionais |
+| `users` | Contas | `type`: `person` (e-mail único e senha obrigatórios) ou `integration` (sem e-mail nem senha, com `channel`: `api`, `agent` ou `monitoring`). Organização obrigatória; departamento e telefone opcionais |
 | `organization_user` | Técnico ↔ organização | Vínculo direto para a visibilidade "apenas organizações vinculadas" |
 
 ### Acesso (tabelas dos pacotes)
@@ -166,7 +171,7 @@ erDiagram
 | Tabela | Pacote |
 |---|---|
 | `roles`, `permissions`, `model_has_roles`, `model_has_permissions`, `role_has_permissions` | spatie/laravel-permission |
-| `personal_access_tokens` | Laravel Sanctum |
+| `personal_access_tokens` | Laravel Sanctum. Apenas para contas de integração; escopos (`abilities`) não são usados |
 | `password_reset_tokens`, `sessions` | Laravel |
 
 ### Horário útil e SLA
@@ -202,7 +207,7 @@ Os prazos são calculados contando apenas o horário útil do calendário da org
 
 Detalhes de `tickets`:
 - **Chamado anterior** (`previous_ticket_id`): vincula um novo chamado a um chamado fechado, já que chamados fechados não são reabertos.
-- **Organização gravada na abertura** (desnormalização consciente): filtro de visibilidade rápido (P4) e histórico preservado se o solicitante mudar de organização.
+- **Organização e departamento gravados na abertura** (desnormalização consciente): filtros de visibilidade e indicadores rápidos (P4), e histórico preservado se o solicitante mudar de organização ou de departamento.
 - **Momentos-chave no próprio chamado**: prazos (`*_due_at`), momentos reais (`first_responded_at`, `resolved_at`, `closed_at`, `canceled_at`), forma de fechamento (`close_type`: `confirmed` ou `auto`) e pausa (`pending_since`, `paused_seconds`). As métricas do dashboard saem de consultas diretas, sem varrer a auditoria (P4).
 
 ### Configuração e infraestrutura

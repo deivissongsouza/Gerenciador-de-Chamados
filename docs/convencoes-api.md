@@ -1,7 +1,7 @@
 # Convenções da API
 
 > Regras que todos os endpoints seguem. Quem aprende a usar um endpoint sabe usar todos.
-> Princípios em [constituicao.md](constituicao.md), termos em [glossario.md](glossario.md). Última revisão: 2026-10-11.
+> Princípios em [constituicao.md](constituicao.md), termos em [glossario.md](glossario.md). Última revisão: 2026-10-12.
 
 ## 1. Endereços e recursos
 
@@ -111,9 +111,9 @@ Formato **RFC 9457 (Problem Details)**, com `Content-Type: application/problem+j
 | Modo | Funcionamento |
 |---|---|
 | Sessão | Cookie HttpOnly com proteção CSRF (fluxo do Sanctum) |
-| Chave de API | `Authorization: Bearer <chave>` |
+| Chave de API | `Authorization: Bearer <chave>`. Apenas contas de integração |
 
-O acesso efetivo de uma chave de API é a **interseção** entre os escopos da chave e as permissões do usuário dono dela. Uma chave nunca tem mais poder que seu usuário.
+Pessoas usam sessão; integrações usam chave de API. O acesso de uma chave é exatamente o das permissões atuais da conta de integração dona dela. O **canal de origem** é definido pelo servidor a partir de quem está autenticado (sessão: `web`; chave: o canal cadastrado na conta), nunca informado pelo cliente (P6).
 
 ## 8. Idioma
 

@@ -17,7 +17,7 @@
 
 | Peça | Escolha | Motivo | Princípios |
 |---|---|---|---|
-| Sessão e chaves de API | Laravel Sanctum | Login por cookie HttpOnly e chaves de API com escopos no mesmo pacote | P5, P6 |
+| Sessão e chaves de API | Laravel Sanctum | Login por cookie HttpOnly (pessoas) e chaves de API (contas de integração) no mesmo pacote | P5, P6 |
 | Fluxos de login | Laravel Fortify | Login, logout e recuperação de senha apenas como endpoints | P5 |
 | Papéis e permissões | spatie/laravel-permission | Papéis agrupam permissões e o código verifica permissões | P7 |
 
