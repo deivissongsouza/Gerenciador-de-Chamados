@@ -146,6 +146,7 @@ O primeiro objetivo é um **projeto de apresentação** sólido. O produto evolu
 | M9 | **Avaliação** | Nota do atendimento |
 | M10 | **Dashboard** | Endpoints de métricas: chamados por status, chamados com prazo excedido, tempo médio de primeira resposta, tempo médio de solução (sem pausas), tempo médio corrido (com pausas), tempo médio em pendência, SLA cumprido/excedido, média das notas, taxa de confirmação e taxa de avaliação (por organização e departamento) |
 | M11 | **Notificações por e-mail** | Eventos do chamado (aberto, atribuído, respondido, resolvido…) e recuperação de senha |
+| M13 | **Configurações** | Consultar, personalizar e restaurar ao padrão as configurações gerais (ex.: tempo de sessão, prazo do fechamento automático, visibilidade do técnico) |
 | — | **Transversal** | Soft delete, histórico de alterações, documentação da API |
 
 ### Fora do escopo da fase 1

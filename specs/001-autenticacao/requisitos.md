@@ -226,7 +226,7 @@ O login precisa ser simples (P1): e-mail e senha, sem passos extras na fase 1.
 #### CA-001-29: Pessoa não tem chave
 - **Dado** um Administrador
 - **Quando** tenta gerar uma chave para um usuário do tipo pessoa (inclusive para si mesmo)
-- **Então** recebe `422` e nenhuma chave é criada
+- **Então** recebe `404`, pois a pessoa não é uma conta de integração, e nenhuma chave é criada
 
 ### Identidade e auditoria
 
@@ -287,4 +287,5 @@ A spec só é aprovada depois que todas forem respondidas.
 |---|---|---|
 | 2026-10-12 | Rascunho inicial | — |
 | 2026-10-12 | Requisitos aprovados | — |
+| 2026-10-12 | CA-001-29: resposta muda de `422` para `404` | Proposto no design e aprovado: a rota de chaves é da conta de integração, e o id de uma pessoa não existe nesse endereço (convenções da API §5) |
 | 2026-10-12 | Respostas às dúvidas 1 a 7. Chaves de API passam a pertencer a contas de integração; regras e critérios renumerados | Decisões do responsável pelo produto. A renumeração foi feita antes da aprovação, sem nenhuma referência aos identificadores antigos |

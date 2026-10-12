@@ -20,6 +20,7 @@ Documentos de referência: [visão do produto](../docs/visao-do-produto.md) · [
 | 010 | Avaliação | Não iniciada |
 | 011 | Notificações por e-mail | Não iniciada |
 | 012 | Dashboard | Não iniciada |
+| 013 | Configurações | Não iniciada |
 
 ## Estrutura
 
