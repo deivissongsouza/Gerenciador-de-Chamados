@@ -24,7 +24,7 @@ Integração ─Bearer─► guard sanctum ──► personal_access_tokens ─�
 
 | Depende de | O que é usado | Como fica nesta spec |
 |---|---|---|
-| Esqueleto do repositório | Docker, Makefile, CI, handler de erros RFC 9457, Pest, Pint, Larastan | Pré-requisito: criado antes da primeira tarefa |
+| [Spec 000](../000-fundacao/requisitos.md) (Fundação) | Docker, Makefile, CI, handler de erros RFC 9457, Pest, Pint, Larastan, activity log, serviço `Settings` | Pré-requisito: concluída antes da primeira tarefa desta spec |
 | Spec 004 (Estrutura) | Tabelas `organizations` e `departments` | Esta spec cria as migrations **mínimas** (colunas do [modelo de dados](../../docs/modelo-de-dados.md)), sem endpoints. A spec 004 acrescenta regras e endpoints |
 | Spec 002 (Controle de acesso) | Tabelas do spatie, papéis de fábrica | Esta spec instala o pacote, cria a permissão `integrations.manage` e o papel `Admin` no seeder de fábrica. A spec 002 completa os demais papéis e permissões |
 
@@ -311,3 +311,4 @@ Via spatie/laravel-activitylog, `log_name = auth`. Cada registro guarda `causer`
 |---|---|---|
 | 2026-10-12 | Rascunho inicial | — |
 | 2026-10-12 | D1 e D2 resolvidas; design aprovado | Decisões do responsável pelo produto |
+| 2026-10-12 | Dependência "esqueleto do repositório" passa a apontar para a spec 000; activity log e serviço `Settings` vêm de lá | Criação da spec 000 (Fundação) |

@@ -8,6 +8,7 @@ Documentos de referência: [visão do produto](../docs/visao-do-produto.md) · [
 
 | Spec | Módulo | Status |
 |---|---|---|
+| [000](000-fundacao/) | Fundação (ambiente, qualidade, API transversal, harness) | Requisitos aprovados |
 | [001](001-autenticacao/) | Autenticação | Design aprovado |
 | 002 | Controle de acesso | Não iniciada |
 | 003 | Usuários | Não iniciada |
