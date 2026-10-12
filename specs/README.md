@@ -8,7 +8,7 @@ Documentos de referência: [visão do produto](../docs/visao-do-produto.md) · [
 
 | Spec | Módulo | Status |
 |---|---|---|
-| [001](001-autenticacao/) | Autenticação | Requisitos aprovados |
+| [001](001-autenticacao/) | Autenticação | Design aprovado |
 | 002 | Controle de acesso | Não iniciada |
 | 003 | Usuários | Não iniciada |
 | 004 | Estrutura organizacional | Não iniciada |

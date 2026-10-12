@@ -2,7 +2,7 @@
 
 | Status | Data | Aprovado por |
 |---|---|---|
-| Rascunho | 2026-10-12 | — |
+| Design aprovado | 2026-10-12 | Dêvisson Souza |
 
 Requisitos: [requisitos.md](requisitos.md)
 
@@ -310,3 +310,4 @@ Via spatie/laravel-activitylog, `log_name = auth`. Cada registro guarda `causer`
 | Data | Alteração | Motivo |
 |---|---|---|
 | 2026-10-12 | Rascunho inicial | — |
+| 2026-10-12 | D1 e D2 resolvidas; design aprovado | Decisões do responsável pelo produto |
